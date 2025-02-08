@@ -1,12 +1,14 @@
 // micro-react-app/src/index.js
 import './public-path' // 引入 public-path.js
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from "react-dom/client";
 import App from './App'
 
+const root = createRoot(document.getElementById("root"));
 function render(props) {
+  
   const { container } = props
-  ReactDOM.render(
+  root.render(
     <App />,
     container ? container.querySelector('#root') : document.querySelector('#root') // 挂载到指定容器
   )
@@ -27,7 +29,6 @@ export async function mount(props) {
   render(props)
 }
 
-export async function unmount() {
-  console.log('React 微应用 unmount')
-  ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+export async function unmount(props) { 
+  console.log('React 微应用 unmount', props)
 }

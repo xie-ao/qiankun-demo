@@ -12,7 +12,7 @@ module.exports = {
     output: {
       library: `${name}-[name]`, // 暴露库名称
       libraryTarget: 'umd', // 通用模块定义
-      jsonpFunction: `webpackJsonp_${name}`, // 避免 JSONP 冲突
+      chunkLoadingGlobal: `webpackJsonp_${name}`, // 避免 JSONP 冲突
     },
   },
 }
